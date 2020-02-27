@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Custom_Roll_Up_Calculation__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Custom Roll Up Calculation</label>
+        <referenceTo>Custom_Roll_Up_Calculation__mdt</referenceTo>
+        <relationshipLabel>Custom Roll Up Calculation Criterias</relationshipLabel>
+        <relationshipName>Custom_Roll_Up_Calculation_Criterias</relationshipName>
+        <required>true</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Field_Name__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Field Name</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Operator__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Operator</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Equals</fullName>
+                    <default>true</default>
+                    <label>Equals</label>
+                </value>
+                <value>
+                    <fullName>Does not equals</fullName>
+                    <default>false</default>
+                    <label>Does not equals</label>
+                </value>
+                <value>
+                    <fullName>Greater than</fullName>
+                    <default>false</default>
+                    <label>Greater than</label>
+                </value>
+                <value>
+                    <fullName>Less than</fullName>
+                    <default>false</default>
+                    <label>Less than</label>
+                </value>
+                <value>
+                    <fullName>Is Null</fullName>
+                    <default>false</default>
+                    <label>Is Null</label>
+                </value>
+                <value>
+                    <fullName>Greater than or Equal</fullName>
+                    <default>false</default>
+                    <label>Greater than or Equal</label>
+                </value>
+                <value>
+                    <fullName>Less than or Equal</fullName>
+                    <default>false</default>
+                    <label>Less than or Equal</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Value__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Value</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Custom Roll Up Calculation Criteria</label>
+    <pluralLabel>Custom Roll Up Calculation Criterias</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>
