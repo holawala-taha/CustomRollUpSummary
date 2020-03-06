@@ -31,16 +31,22 @@ public with sharing class CustomRollUpCalculator {
             if(!Trigger.isAfter)
                 return;
 
+            // Query the custom metadata records
+            List<Custom_Roll_Up_Calculation__mdt> rollUpMetadata = queryRollUpMetadata(parentObjectAPIName,childRelationshipName);
+
             if(Trigger.isInsert || Trigger.isDelete || Trigger.isUndelete){
                 for(SObject childRecord : childRecords){
-                    if(childRecord.get(parentAPIName) != null){
-                        String parentIdString = String.valueOf(childRecord.get(parentAPIName));
-                        parentRecordIds.add(Id.valueOf(parentIdString));
+
+                    for(Custom_Roll_Up_Calculation__mdt rollUpMetadataRecord : rollUpMetadata){
+                        if(isCriteriaSatisfied(childRecord,rollUpMetadataRecord)){
+                            if(childRecord.get(parentAPIName) != null){
+                                String parentIdString = String.valueOf(childRecord.get(parentAPIName));
+                                parentRecordIds.add(Id.valueOf(parentIdString));
+                            }
+                        }
                     }
                 }
             }else{
-                // Query the custom metadata records
-                List<Custom_Roll_Up_Calculation__mdt> rollUpMetadata = queryRollUpMetadata(parentObjectAPIName,childRelationshipName);
 
                 // Gather child fields to query
                 Set<String> childFields     = getChildFieldsToQuery(rollUpMetadata);
@@ -56,7 +62,7 @@ public with sharing class CustomRollUpCalculator {
                     }
                 }
 
-            } 
+            }
         }else{
             for(SObject childRecord : childRecords){
                 if(childRecord.get(parentAPIName) != null){
