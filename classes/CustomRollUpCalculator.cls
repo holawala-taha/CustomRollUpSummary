@@ -7,7 +7,7 @@
  * Custom Metadata type: Opportunity_Roll_Up_Calculation__mdt
  *                  Use this custom metadata to configure the roll ups
  *
- * @Author: tholawala@salesforce.com
+ * @Author: holawala.taha@gmail.com
  */
 public with sharing class CustomRollUpCalculator {
 
